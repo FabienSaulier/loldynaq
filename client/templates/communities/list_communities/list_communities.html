@@ -1,0 +1,23 @@
+<template name="ListCommunities">
+  <h1>Com List</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>url</th>
+        <th>picture</th>
+        <th>edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each communities}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{url}}</td>
+          <td>{{picture}}</td>
+          <td>{{#linkTo route='editCommunity'}}<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>{{/linkTo}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

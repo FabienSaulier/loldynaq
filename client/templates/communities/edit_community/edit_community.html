@@ -1,0 +1,10 @@
+<template name="EditCommunity">
+  <div class="edit-community">
+
+
+  <h1>Edit</h1>
+  {{> quickForm collection="Communities" doc=this id="editCommunityForm" type="update" buttonContent="Update"}}
+  {{> quickRemoveButton collection="Communities" _id=this._id beforeRemove=beforeRemove class="btn btn-danger"}}
+
+  </div>
+</template>
