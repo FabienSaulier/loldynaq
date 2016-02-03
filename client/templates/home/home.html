@@ -1,43 +1,12 @@
 <template name="Home">
   <div class="home">
-    <h1>Find me in app/client/templates/home/homexxxxxx</h1>
-    
-    acien login: 
-    {{> loginButtons}}
 
 
-
-    {{#if currentUser}}
-        <p>You're logged in.</p>
-        {{currentUser}}
-    {{else}}
-        {{> register}}
-        {{> login}}
-    {{/if}}
-    
-
+Home todo: 
+- display communities
 
   </div>
 </template>
 
 
-<template name="register">
-    <form>
-        <input type="email" name="registerEmail">
-        <input type="password" name="registerPassword">
-        <input type="text" name="summoner_name">
-        <input type="text" name="community_name">
-        <input type="text" name="server">
-        <input type="submit" value="Register">
-    </form>
-</template>
 
-
-
-<template name="login">
-    <form>
-        <input type="email" name="loginEmail">
-        <input type="password" name="loginPassword">
-        <input type="submit" value="Login">
-    </form>
-</template>

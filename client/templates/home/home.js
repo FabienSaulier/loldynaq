@@ -10,7 +10,7 @@ Template.Home.events({
 Template.Home.helpers({
 });
 
-
+/*
 Template.register.events({
         'submit form': function(event) {
             event.preventDefault();
@@ -35,6 +35,9 @@ Template.register.events({
         }
     });
     
+    */
+    
+    /*
 Template.login.events({
     'submit form': function(event){
         event.preventDefault();
@@ -43,6 +46,8 @@ Template.login.events({
         Meteor.loginWithPassword(emailVar, passwordVar);
     }
 });
+
+*/
 
 /*****************************************************************************/
 /* Home: Lifecycle Hooks */
