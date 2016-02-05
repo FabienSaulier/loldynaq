@@ -1,24 +1,23 @@
 /*****************************************************************************/
-/* Home: Event Handlers */
+/* Logout: Event Handlers */
 /*****************************************************************************/
-Template.Home.events({
+Template.Logout.events({
 });
 
 /*****************************************************************************/
-/* Home: Helpers */
+/* Logout: Helpers */
 /*****************************************************************************/
-Template.Home.helpers({
+Template.Logout.helpers({
 });
 
-
 /*****************************************************************************/
-/* Home: Lifecycle Hooks */
+/* Logout: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Home.onCreated(function () {
+Template.Logout.onCreated(function () {
 });
 
-Template.Home.onRendered(function () {
+Template.Logout.onRendered(function () {
 });
 
-Template.Home.onDestroyed(function () {
+Template.Logout.onDestroyed(function () {
 });

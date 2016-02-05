@@ -6,6 +6,7 @@ Accounts.onCreateUser(function(options, user) {
    user.profile.communityName = options.communityName;
     user.profile.server = options.server;
 
+console.log(user)
    // Returns the user object
    return user;
 });
