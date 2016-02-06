@@ -7,7 +7,16 @@ Template.Login.events({
         event.preventDefault();
         var emailVar = event.target.email.value;
         var passwordVar = event.target.password.value;
-        Meteor.loginWithPassword(emailVar, passwordVar);
+        Meteor.loginWithPassword(emailVar, passwordVar, 
+            function(error){
+                if(error){
+
+                    if(error.error == 403)
+                        sAlert.warning(error.reason, {position:'top'});
+                    else
+                        sAlert.warning("No user found", {position:'top'});
+                }
+            });
     }
     
 });
