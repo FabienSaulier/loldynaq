@@ -18,7 +18,17 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input id="sumName" type="text" class="validate">
+          <select id="server">
+            <option value="" disabled selected>Server</option>
+            <option value="EUW">EUW</option>
+            <option value="NA">NA</option>
+            <option value="KR">KR</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="sumName" type="text" class="validate sumNameInput">
           <label for="sumName">Summoner name</label>
         </div>
       </div>
@@ -26,16 +36,6 @@
         <div class="input-field col s6">
           <input id="comName" type="text" class="validate">
           <label for="comName">Community name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <select id="server">
-            <option value="" disabled selected>Server</option>
-            <option value="EUW">EUW</option>
-            <option value="NA">NA</option>
-            <option value="KR">KR</option>
-          </select>
         </div>
       </div>
       <button class="btn waves-effect waves-light" type="submit" name="action">Register

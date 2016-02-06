@@ -23,9 +23,12 @@ Template.Register.events({
             });
             
             Router.go('home');
-
-
-        }
+        },
+   
+   
+   'focusout .sumNameInput' : function(event){
+       alert('yeah');
+   }
 });
 
 /*****************************************************************************/
