@@ -1,27 +1,30 @@
 /*****************************************************************************/
-/* ListCommunities: Event Handlers */
+/* DisplayCommunities: Event Handlers */
 /*****************************************************************************/
-Template.ListCommunities.events({
+Template.DisplayCommunities.events({
 });
 
 /*****************************************************************************/
-/* ListCommunities: Helpers */
+/* DisplayCommunities: Helpers */
 /*****************************************************************************/
-Template.ListCommunities.helpers({
+Template.DisplayCommunities.helpers({
   communities: function() {
+          console.log("get coomunities");
+
     return Communities.find();
   }
 
 });
 
 /*****************************************************************************/
-/* ListCommunities: Lifecycle Hooks */
+/* DisplayCommunities: Lifecycle Hooks */
 /*****************************************************************************/
-Template.ListCommunities.onCreated(function () {
+Template.DisplayCommunities.onCreated(function () {
+    console.log("gogo");
 });
 
-Template.ListCommunities.onRendered(function () {
+Template.DisplayCommunities.onRendered(function () {
 });
 
-Template.ListCommunities.onDestroyed(function () {
+Template.DisplayCommunities.onDestroyed(function () {
 });
