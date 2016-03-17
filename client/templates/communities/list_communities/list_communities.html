@@ -12,8 +12,7 @@
     <tbody>
       {{#each communities}}
         <tr>
-          <td>{{name}}</td>
-          <td>{{url}}</td>
+          <td>{{#linkTo route='viewCommunity'}}{{name}}{{/linkTo}}</td>
           <td>{{picture}}</td>
           <td>{{#linkTo route='editCommunity'}}<span>edit</span>{{/linkTo}}</td>
         </tr>

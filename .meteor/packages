@@ -22,6 +22,10 @@ aldeed:collection2
 accounts-password
 accounts-ui
 aldeed:delete-button
-materialize:materialize
 juliancwirko:s-alert
 http
+dburles:collection-helpers
+meteortoys:allthings
+semantic:ui
+flemay:less-autoprefixer
+underscore

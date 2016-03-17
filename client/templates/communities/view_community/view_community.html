@@ -1,9 +1,25 @@
 <template name="ViewCommunity">
     <div class="view-community">
         <h1>{{name}}</h1>
-        {{url}}<br />
-        {{picture}}<br />
-    
+        {{url}} - {{picture}}<br />
+        
+        {{#if isPlayerInCommunity}}
+            <i>You are part of this community</i>
+        {{else }}
+            <button class="joinCommunityBtn" >join {{name}} community</button>
+        {{/if}}
+        <br />
+        Players in this community:
+        <div class="ui list">
+            {{#each users}}
+                {{#if isCurrentUser _id }}
+                    <div class='ui item big label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}} <i class="refresh icon"></i></div>
+                {{else }}
+                    <div class='ui item label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}} <i class="refresh icon"></i></div>
+                {{/if}}
+            {{/each}}
+        </div>
+
     
     </div>
 </template>

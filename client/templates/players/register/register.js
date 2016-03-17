@@ -3,6 +3,7 @@
 /*****************************************************************************/
 Template.Register.events({
         'submit form': function(event) {
+            console.log("coucou");
             event.preventDefault();
             var emailVar = event.target.email.value;
             var passwordVar = event.target.password.value;
@@ -18,6 +19,7 @@ Template.Register.events({
             server:server
                 
             });
+            console.log("out");
             
             Router.go('home');
         },
@@ -28,7 +30,7 @@ Template.Register.events({
             callSummonerByName($("#server").val(), $("#sumName").val());
     },
    
-    'focusout .sumNameInput' : function(event){
+    'focusout #sumName' : function(event){
         var server =  $("#server").val();
         if(!server){
             sAlert.error("server required", {position:'top'});
@@ -70,7 +72,9 @@ Template.Register.onCreated(function () {
 });
 
 Template.Register.onRendered(function () {
-    $('select').material_select();
+$('.ui.dropdown')
+  .dropdown()
+;
 });
 
 Template.Register.onDestroyed(function () {

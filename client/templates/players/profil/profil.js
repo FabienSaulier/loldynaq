@@ -8,6 +8,7 @@ Template.Profil.events({
 /* Profil: Helpers */
 /*****************************************************************************/
 Template.Profil.helpers({
+
 });
 
 /*****************************************************************************/
@@ -16,7 +17,6 @@ Template.Profil.helpers({
 Template.Profil.onCreated(function () {
     if(!Meteor.user())
         Meteor.go("home");
-    console.log(Meteor.user());
 });
 
 Template.Profil.onRendered(function () {

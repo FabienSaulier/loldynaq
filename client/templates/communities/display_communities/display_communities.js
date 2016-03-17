@@ -9,8 +9,6 @@ Template.DisplayCommunities.events({
 /*****************************************************************************/
 Template.DisplayCommunities.helpers({
   communities: function() {
-          console.log("get coomunities");
-
     return Communities.find();
   }
 
@@ -20,7 +18,6 @@ Template.DisplayCommunities.helpers({
 /* DisplayCommunities: Lifecycle Hooks */
 /*****************************************************************************/
 Template.DisplayCommunities.onCreated(function () {
-    console.log("gogo");
 });
 
 Template.DisplayCommunities.onRendered(function () {

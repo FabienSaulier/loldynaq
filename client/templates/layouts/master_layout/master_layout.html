@@ -1,26 +1,47 @@
 <template name="MasterLayout">
-  <nav  role="navigation">
-    <div class="nav-wrapper">
-      <div class="navbar-header">
-        {{#linkTo route="home"}}lolCommuDynaQ{{/linkTo}}
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="active item">{{#linkTo route="home"}}lolCommuDynaQ{{/linkTo}}</a>
+        {{#linkTo route="listCommunities" class="item" }}Communities{{/linkTo}}
           {{> LoginElement}}
-        </ul>
+       
       </div>
     </div>
-  </nav>
-        {{> sAlert}}
-
-  <div class="container" style="margin-top:40px">
-
-
-    {{> yield}}
   </div>
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-      <ul class="nav navbar-nav navbar-right">
-        <li>Built with Meteor</li>
-      </ul>
+  {{> sAlert}}
+
+<div class="ui center container">
+    {{> yield}}
+</div>
+
+  
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Sitemap</a>
+            <a href="#" class="item">Contact Us</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Build with</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">meteor.js</a>
+            <a href="#" class="item">semantic ui</a>
+            <a href="#" class="item">heroku</a>
+            <a href="#" class="item">cloud9</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">League of Legends communities</h4>
+          <p>Join your community friends on Lol</p>
+        </div>
+      </div>
     </div>
-  </nav>
+  </div>
 </template>

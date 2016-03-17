@@ -1,15 +1,9 @@
 <template name="LoginElement">
-    
-    
 {{#if currentUser}}
-        <ul class="nav navbar-nav">
-          <li>{{#linkTo route="profil"}}Profil{{/linkTo}}</li>
-          <li><a href="#" class="logout">Logout</a></li>
-        </ul>
+          {{#linkTo route="profil" class="item right"}}Logged as {{currentUser.profile.summonerName}}{{/linkTo}}
+          <a href="#" class="item" >Logout</a>
 {{else}}
-        <ul class="nav navbar-nav">
-          <li>{{#linkTo route="login"}}Login{{/linkTo}}</li>
-          <li>{{#linkTo route="register"}}Register{{/linkTo}}</li>
-        </ul>
+          {{#linkTo route="login" class="item right"}}Login{{/linkTo}}
+          {{#linkTo route="register" class="item"}}Register{{/linkTo}}
 {{/if}}
 </template>
