@@ -7,10 +7,20 @@ Template.ViewCommunity.events({
     },
     
     'click .refresh': function(){
-        console.log("refresh user");
+        Meteor.call('getSummonerInfo', Meteor.user().profile.server, Meteor.user().profile.summonerId, serverCallBack);
+        
     }
     
 });
+
+function serverCallBack(error, result){
+    if(error)
+        console.log(error);
+    else{
+        console.log(result);
+    }
+    
+}
 
 
 Meteor.subscribe("allUsers");

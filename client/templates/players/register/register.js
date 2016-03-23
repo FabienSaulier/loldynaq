@@ -3,31 +3,36 @@
 /*****************************************************************************/
 Template.Register.events({
         'submit form': function(event) {
-            console.log("coucou");
+            
+            console.log(event.target.sumId.value);
+            if(event.target.sumId.value === ""){
+                console.log("cancel: pas d'id");
+                return;
+            }
             event.preventDefault();
             var emailVar = event.target.email.value;
             var passwordVar = event.target.password.value;
             var summonerName = event.target.sumName.value;
             var communityName = event.target.comName.value;
             var server = event.target.server.value;
+            var summonerId = event.target.sumId.value;
         
             Accounts.createUser({
-            email: emailVar,
-            password: passwordVar,
-            summonerName:summonerName,
-            communityName:communityName,
-            server:server
-                
+                email: emailVar,
+                password: passwordVar,
+                summonerName:summonerName,
+                communityName:communityName,
+                server:server,
+                summonerId:summonerId
             });
-            console.log("out");
-            
+
             Router.go('home');
         },
    
    
     'change #server': function(event){
         if($("#sumName").val() && $("#server").val())
-            callSummonerByName($("#server").val(), $("#sumName").val());
+            checkSummonerExist($("#server").val(), $("#sumName").val());
     },
    
     'focusout #sumName' : function(event){
@@ -36,13 +41,13 @@ Template.Register.events({
             sAlert.error("server required", {position:'top'});
             return;
         }
-        callSummonerByName($("#server").val(), $("#sumName").val());
+        checkSummonerExist($("#server").val(), $("#sumName").val());
     }
    
 });
 
-function callSummonerByName(server, sumName){
-     Meteor.call('callSummonerByName', server, sumName, serverCallBack);
+function checkSummonerExist(server, sumName){
+     Meteor.call('checkSummonerExist', server, sumName, serverCallBack);
     
 }
 
@@ -52,6 +57,14 @@ function serverCallBack(error, result){
     else{
         $("#sumNameValid").show();
         sAlert.success(result, {position:'top'});
+        var riotData = JSON.parse(result);
+        var sumName = $("#sumName").val().toLowerCase();
+        console.log(riotData);
+        console.log(sumName);
+        console.log(riotData[sumName].id);
+        
+        $('input[name="sumId"]').val(riotData[sumName].id);
+
     }
     
 }

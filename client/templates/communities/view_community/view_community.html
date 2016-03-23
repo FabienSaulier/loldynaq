@@ -13,13 +13,15 @@
         <div class="ui list">
             {{#each users}}
                 {{#if isCurrentUser _id }}
-                    <div class='ui item big label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}} <i class="refresh icon"></i></div>
+                    <div class='ui item big label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}}
+                        <button class="ui compact icon button">
+                            <i class="refresh icon"></i>
+                        </button>
+                    </div>
                 {{else }}
-                    <div class='ui item label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}} <i class="refresh icon"></i></div>
+                    <div class='ui item label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}}</div>
                 {{/if}}
             {{/each}}
         </div>
-
-    
     </div>
 </template>

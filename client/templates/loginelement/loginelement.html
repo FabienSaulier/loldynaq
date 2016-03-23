@@ -1,7 +1,8 @@
 <template name="LoginElement">
 {{#if currentUser}}
           {{#linkTo route="profil" class="item right"}}Logged as {{currentUser.profile.summonerName}}{{/linkTo}}
-          <a href="#" class="item" >Logout</a>
+          {{#linkTo route="logout" class="item"}}Logout{{/linkTo}}
+
 {{else}}
           {{#linkTo route="login" class="item right"}}Login{{/linkTo}}
           {{#linkTo route="register" class="item"}}Register{{/linkTo}}
