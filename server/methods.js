@@ -4,6 +4,9 @@
 
 Meteor.methods({
 
+
+//TODO check si les info server et summonerName sont bien remplis, sinon => throw error.
+
   'checkSummonerExist': function(server, summonerName){
     
     server = server.toLowerCase();
@@ -13,15 +16,26 @@ Meteor.methods({
     return res.content;
   },
   
-  'getSummonerInfo': function(server, summonerId){
+  'getSummonerLeague': function(server, summonerId){
     
     server = server.toLowerCase();
-    var result = HTTP.get("https://euw.api.pvp.net/api/lol/"+server+"/v2.5/league/by-summoner/"+summonerId+"/entry?api_key=c8d0d47a-03ad-4fd0-a595-004a35bab096");
-  
-  var obj = JSON.parse(result.content)
+    try{
+      var url = "https://euw.api.pvp.net/api/lol/"+server+"/v2.5/league/by-summoner/"+summonerId+"/entry?api_key=c8d0d47a-03ad-4fd0-a595-004a35bab096";
+      var result = HTTP.get(url);
+    } catch (e){
+      
+      //TODO check le statut si 404 etc. attention! l'objet est une surcharge meteor. c'est pas le son pur reçu.
+      console.log(e);
+      return;
+    }
 
-    var leagueData = obj[summonerId.toString()][0].entries[0];
-
+    var content = (JSON.parse(result.content))[summonerId.toString()][0];
+    
+    var leagueData = content.entries[0];
+    var tier = content.tier;
+    var leagueName = content.name;
+    leagueData.tier = tier;
+    leagueData.name = leagueName;
 
     if(Meteor.userId()){
       
@@ -29,7 +43,6 @@ Meteor.methods({
 
     }
 
-  console.log(Meteor.user());
 
     return result;
     

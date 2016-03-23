@@ -7,15 +7,19 @@ Template.ViewCommunity.events({
     },
     
     'click .refresh': function(){
-        Meteor.call('getSummonerInfo', Meteor.user().profile.server, Meteor.user().profile.summonerId, serverCallBack);
+        console.log(this.summonerId);
+        console.log(this.a);
+        Meteor.call('getSummonerLeague', Meteor.user().profile.server, this.summonerId, serverCallBack);
         
     }
     
 });
 
 function serverCallBack(error, result){
-    if(error)
+    if(error){
+        alert(error);
         console.log(error);
+    }
     else{
         console.log(result);
     }
@@ -44,6 +48,10 @@ Template.ViewCommunity.helpers({
     
     'isCurrentUser': function(userId){
         return userId === Meteor.userId();
+    }, 
+    
+    'display' : function(object){
+        return JSON.stringify(object);
     }
 
 });

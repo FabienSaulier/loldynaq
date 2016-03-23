@@ -10,18 +10,64 @@
         {{/if}}
         <br />
         Players in this community:
-        <div class="ui list">
+        
+        <table class="ui single line table">
+        <thead>
+            <tr>
+                <th class="">Refresh</th>
+                <th class="">Pseudo</th>
+                <th class="sorted ascending descending">Summoner</th>
+                <th class="">Rank</th>
+                <th class="">W/L</th>
+                <th class="">Status</th>
+                <th class="">server</th>
+            </tr>
+        </thead>
+        <tbody>
             {{#each users}}
                 {{#if isCurrentUser _id }}
-                    <div class='ui item big label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}}
+                
+                    {{> row profile=profile summonerId=profile.summonerId currentUser=true a="moi"}}
+  <!--
+                <tr>
+                    <td><i class="refresh icon"></i></td>
+                    <td>{{profile.communityName}}</td>
+                    <td>{{profile.summonerName}}</td>
+                    <td>{{profile.soloQ.tier}} - {{profile.soloQ.division}} - {{profile.soloQ.leaguePoints}}</td>
+                    <td>{{profile.soloQ.wins}} / {{profile.soloQ.losses}}</td>
+                    <td>{{profile.soloQ.isFreshBlood}} - {{profile.soloQ.isHotStreak}} - {{profile.soloQ.isVeteran}}</td>
+                    <td>{{profile.server}}</td>
+                </tr>
+                -->
+                <!--
+                    <div class='ui item big label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}} {{ display profile}}
                         <button class="ui compact icon button">
                             <i class="refresh icon"></i>
                         </button>
                     </div>
+                    -->
                 {{else }}
-                    <div class='ui item label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}}</div>
+                
+                
+                 {{> row profile=profile summonerId=profile.summonerId a="tt"}}
+                 
+
+                    <!--<div class='ui item label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}}</div>-->
                 {{/if}}
             {{/each}}
-        </div>
+        </tbody>    
+        </table>
     </div>
+</template>
+
+<template name="row">
+                <tr>
+                    <td><i class="refresh icon"></i></td>
+                    <td>{{profile.communityName}}</td>
+                    <td>{{profile.summonerName}} - {{profile.summonerId}}</td>
+                    <td>{{profile.soloQ.tier}} - {{profile.soloQ.division}} - {{profile.soloQ.leaguePoints}}</td>
+                    <td>{{profile.soloQ.wins}} / {{profile.soloQ.losses}}</td>
+                    <td>{{profile.soloQ.isFreshBlood}} - {{profile.soloQ.isHotStreak}} - {{profile.soloQ.isVeteran}}</td>
+                    <td>{{profile.server}}</td>
+                </tr>
 </template>
