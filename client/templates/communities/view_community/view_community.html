@@ -27,7 +27,7 @@
             {{#each users}}
                 {{#if isCurrentUser _id }}
                 
-                    {{> row profile=profile summonerId=profile.summonerId currentUser=true a="moi"}}
+                    {{> row profile=profile summonerId=profile.summonerId currentUser=true userId=_id}}
   <!--
                 <tr>
                     <td><i class="refresh icon"></i></td>
@@ -48,11 +48,8 @@
                     -->
                 {{else }}
                 
-                
-                 {{> row profile=profile summonerId=profile.summonerId a="tt"}}
+                 {{> row profile=profile summonerId=profile.summonerId userId=_id }}
                  
-
-                    <!--<div class='ui item label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}}</div>-->
                 {{/if}}
             {{/each}}
         </tbody>    
@@ -63,7 +60,7 @@
 <template name="row">
                 <tr>
                     <td><i class="refresh icon"></i></td>
-                    <td>{{profile.communityName}}</td>
+                    <td>{{profile.communityName}} {{userId}}</td>
                     <td>{{profile.summonerName}} - {{profile.summonerId}}</td>
                     <td>{{profile.soloQ.tier}} - {{profile.soloQ.division}} - {{profile.soloQ.leaguePoints}}</td>
                     <td>{{profile.soloQ.wins}} / {{profile.soloQ.losses}}</td>

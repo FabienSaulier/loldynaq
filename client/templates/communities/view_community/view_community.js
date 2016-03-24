@@ -7,9 +7,10 @@ Template.ViewCommunity.events({
     },
     
     'click .refresh': function(){
+        // this refers to the data context of the child template
         console.log(this.summonerId);
         console.log(this.a);
-        Meteor.call('getSummonerLeague', Meteor.user().profile.server, this.summonerId, serverCallBack);
+        Meteor.call('getSummonerLeague', Meteor.user().profile.server, this.summonerId, this.userId, serverCallBack);
         
     }
     

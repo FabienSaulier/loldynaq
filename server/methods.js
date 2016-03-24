@@ -16,7 +16,7 @@ Meteor.methods({
     return res.content;
   },
   
-  'getSummonerLeague': function(server, summonerId){
+  'getSummonerLeague': function(server, summonerId, userId){
     
     server = server.toLowerCase();
     try{
@@ -37,9 +37,9 @@ Meteor.methods({
     leagueData.tier = tier;
     leagueData.name = leagueName;
 
-    if(Meteor.userId()){
+    if(userId){
       
-      Meteor.users.update(Meteor.userId(), {$set : { "profile.soloQ" : leagueData }});
+      Meteor.users.update(userId, {$set : { "profile.soloQ" : leagueData }});
 
     }
 
