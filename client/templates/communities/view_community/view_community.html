@@ -15,8 +15,9 @@
         <thead>
             <tr>
                 <th class="">Refresh</th>
-                <th class="">Pseudo</th>
+                <th class="">User {{name}}</th>
                 <th class="sorted ascending descending">Summoner</th>
+                <th class=""></th>
                 <th class="">Rank</th>
                 <th class="">W/L</th>
                 <th class="">Status</th>
@@ -28,24 +29,7 @@
                 {{#if isCurrentUser _id }}
                 
                     {{> row profile=profile summonerId=profile.summonerId currentUser=true userId=_id}}
-  <!--
-                <tr>
-                    <td><i class="refresh icon"></i></td>
-                    <td>{{profile.communityName}}</td>
-                    <td>{{profile.summonerName}}</td>
-                    <td>{{profile.soloQ.tier}} - {{profile.soloQ.division}} - {{profile.soloQ.leaguePoints}}</td>
-                    <td>{{profile.soloQ.wins}} / {{profile.soloQ.losses}}</td>
-                    <td>{{profile.soloQ.isFreshBlood}} - {{profile.soloQ.isHotStreak}} - {{profile.soloQ.isVeteran}}</td>
-                    <td>{{profile.server}}</td>
-                </tr>
-                -->
-                <!--
-                    <div class='ui item big label'>  {{profile.communityName}}  -  {{profile.summonerName}}  -  {{profile.server}} {{ display profile}}
-                        <button class="ui compact icon button">
-                            <i class="refresh icon"></i>
-                        </button>
-                    </div>
-                    -->
+
                 {{else }}
                 
                  {{> row profile=profile summonerId=profile.summonerId userId=_id }}
@@ -61,9 +45,19 @@
                 <tr>
                     <td><i class="refresh icon"></i></td>
                     <td>{{profile.communityName}} {{userId}}</td>
-                    <td>{{profile.summonerName}} - {{profile.summonerId}}</td>
-                    <td>{{profile.soloQ.tier}} - {{profile.soloQ.division}} - {{profile.soloQ.leaguePoints}}</td>
-                    <td>{{profile.soloQ.wins}} / {{profile.soloQ.losses}}</td>
+                    <td><a href={{ opggUrlProfil profile.server profile.summonerName}} >{{profile.summonerName}} </a> - {{profile.summonerId}}</td>
+                    
+                    
+                    <td><img class="ui mini image" src={{ tierPicture profile.soloQ.tier}} /></td>
+                    
+                    {{#if profile.soloQ.tier}}
+                    
+                    <td class="ui center">{{ tierClean profile.soloQ.tier}} {{profile.soloQ.division}}, {{profile.soloQ.leaguePoints}} LP <br />  {{profile.soloQ.name}}</td>
+                    {{else }}
+                    <td class="ui center">Unranked</td>
+                    {{/if}}
+                    
+                    <td><span class="ui blue header">{{profile.soloQ.wins}}</span> / <span class="ui red header">{{profile.soloQ.losses}}</span></td>
                     <td>{{profile.soloQ.isFreshBlood}} - {{profile.soloQ.isHotStreak}} - {{profile.soloQ.isVeteran}}</td>
                     <td>{{profile.server}}</td>
                 </tr>

@@ -57,6 +57,41 @@ Template.ViewCommunity.helpers({
 
 });
 
+Template.row.helpers({
+    'tierPicture': function(tier){
+        switch(tier) {
+            case 'BRONZE':
+                return "/icons/bronze.png";
+            case 'SILVER':
+                return "/icons/silver.png";
+            case 'GOLD':
+                return "/icons/gold.png";
+            case 'PLATINUM':
+                return "/icons/platinum.png";     
+            case 'DIAMOND':
+                return "/icons/diamond.png";
+            case 'MASTER':
+                return "/icons/master.png"; 
+            case 'CHALLENGER':
+                return "/icons/challenger.png";    
+            default:
+                return "/icons/provisional.png";   
+        }
+    }, 
+    
+    'opggUrlProfil': function(server, summonerName){
+        var urlOpgg = "http://"+server+".op.gg/summoner/userName="+summonerName;
+        return urlOpgg;
+    },
+    
+    'tierClean': function(tier){
+        // s is the global to call underscore.string methods
+        return s(tier).capitalize(true).value();
+    }
+    
+    
+});
+
 
 /*****************************************************************************/
 /* ViewCommunity: Lifecycle Hooks */

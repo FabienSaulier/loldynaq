@@ -24,22 +24,22 @@ Meteor.methods({
       var result = HTTP.get(url);
     } catch (e){
       
-      //TODO check le statut si 404 etc. attention! l'objet est une surcharge meteor. c'est pas le son pur reçu.
+      //TODO check le statut si 404 etc. attention! l'objet est une surcharge meteor. c'est pas le json pur reçu.
       console.log(e);
       return;
     }
 
     var content = (JSON.parse(result.content))[summonerId.toString()][0];
     
-    var leagueData = content.entries[0];
+    var soloQ = content.entries[0];
     var tier = content.tier;
     var leagueName = content.name;
-    leagueData.tier = tier;
-    leagueData.name = leagueName;
+    soloQ.tier = tier;
+    soloQ.name = leagueName;
 
     if(userId){
       
-      Meteor.users.update(userId, {$set : { "profile.soloQ" : leagueData }});
+      Meteor.users.update(userId, {$set : { "profile.soloQ" : soloQ }});
 
     }
 
