@@ -20,25 +20,22 @@
                 <th class=""></th>
                 <th class="">Rank</th>
                 <th class="">W/L</th>
-                <th class="">Status</th>
                 <th class="">server</th>
             </tr>
         </thead>
         <tbody>
             {{#each users}}
                 {{#if isCurrentUser _id }}
-                
                     {{> row profile=profile summonerId=profile.summonerId currentUser=true userId=_id}}
-
                 {{else }}
-                
-                 {{> row profile=profile summonerId=profile.summonerId userId=_id }}
-                 
+                    {{> row profile=profile summonerId=profile.summonerId userId=_id }}
                 {{/if}}
             {{/each}}
         </tbody>    
         </table>
     </div>
+    <br />
+    <br />
 </template>
 
 <template name="row">
@@ -46,19 +43,14 @@
                     <td><i class="refresh icon"></i></td>
                     <td>{{profile.communityName}} {{userId}}</td>
                     <td><a href={{ opggUrlProfil profile.server profile.summonerName}} >{{profile.summonerName}} </a> - {{profile.summonerId}}</td>
-                    
-                    
                     <td><img class="ui mini image" src={{ tierPicture profile.soloQ.tier}} /></td>
-                    
                     {{#if profile.soloQ.tier}}
-                    
-                    <td class="ui center">{{ tierClean profile.soloQ.tier}} {{profile.soloQ.division}}, {{profile.soloQ.leaguePoints}} LP <br />  {{profile.soloQ.name}}</td>
+                        <td class="ui center">{{ tierClean profile.soloQ.tier}} {{profile.soloQ.division}}, {{profile.soloQ.leaguePoints}} LP <br />  {{profile.soloQ.name}}</td>
+                        <td><span class="ui blue header">{{profile.soloQ.wins}}</span> / <span class="ui red header">{{profile.soloQ.losses}}</span></td>
                     {{else }}
-                    <td class="ui center">Unranked</td>
+                        <td class="ui center">Unranked</td>
+                        <td></td>
                     {{/if}}
-                    
-                    <td><span class="ui blue header">{{profile.soloQ.wins}}</span> / <span class="ui red header">{{profile.soloQ.losses}}</span></td>
-                    <td>{{profile.soloQ.isFreshBlood}} - {{profile.soloQ.isHotStreak}} - {{profile.soloQ.isVeteran}}</td>
                     <td>{{profile.server}}</td>
                 </tr>
 </template>

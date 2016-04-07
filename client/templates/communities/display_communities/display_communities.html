@@ -1,5 +1,15 @@
 <template name="DisplayCommunities">
-    {{#each communities}}
-        <a class="btn-floating btn-large waves-effect waves-light red">{{#linkTo route='viewCommunity'}}{{name}}{{/linkTo}}</a>
-    {{/each}}
+    
+    <div class="ui vertical segment">
+        <div class="ui medium header">
+            Present communities
+        </div>
+        <div class="ui vertical segment">
+            {{#each communities}}
+                <a class="ui image big label">
+                    <img src="/communities_logo/hfr_logo.png" />{{#linkTo route='viewCommunity'}}{{name}}{{/linkTo}}</a>
+            {{/each}}
+        </div>
+    </div>
+
 </template>
