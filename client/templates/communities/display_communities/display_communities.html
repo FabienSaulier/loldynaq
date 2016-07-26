@@ -2,12 +2,15 @@
     
     <div class="ui vertical segment">
         <div class="ui medium header">
-            Present communities
+            Communities
         </div>
         <div class="ui vertical segment">
             {{#each communities}}
-                <a class="ui image big label">
-                    <img src="/communities_logo/hfr_logo.png" />{{#linkTo route='viewCommunity'}}{{name}}{{/linkTo}}</a>
+            
+            {{#linkTo route='viewCommunity' class='ui image big label'}}
+                <img src="/communities_logo/{{picture}}" />
+                {{name}}
+            {{/linkTo}}
             {{/each}}
         </div>
     </div>

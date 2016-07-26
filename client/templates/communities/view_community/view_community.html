@@ -1,13 +1,22 @@
-<template name="ViewCommunity">
-    <div class="view-community">
-        <h1>{{name}}</h1>
-        {{url}} - {{picture}}<br />
+<template name="ViewCommunity" class="ui padded">
+    <div class="view-community ui basic segment">
+        <h2 class="ui header">
+            <img class="ui mini image" src="/communities_logo/{{picture}}">
+            <div class="content">{{name}}</div>
+            <div class="sub header"><a href="http://{{url}}" target="_blank" >{{url}}</a></div>
+        </h2>
         
-        {{#if isPlayerInCommunity}}
-            <i>You are part of this community</i>
-        {{else }}
-            <button class="joinCommunityBtn" >join {{name}} community</button>
-        {{/if}}
+        {{#unless currentUser}}
+            <i>You need to be logged to register in this community</i>
+        {{else}}
+            {{#if isPlayerInCommunity}}
+                <i>You are part of this community.</i> <a href="#" class="quitCommunityBtn" >quit?</a>
+            {{else }}
+                <button class="joinCommunityBtn" >join {{name}} community</button>
+            {{/if}} 
+        {{/unless}}
+        
+
         <br />
         Players in this community:
         
@@ -15,12 +24,12 @@
         <thead>
             <tr>
                 <th class="">Refresh</th>
-                <th class="">User {{name}}</th>
+                <th class="">{{name}}</th>
                 <th class="sorted ascending descending">Summoner</th>
                 <th class=""></th>
                 <th class="">Rank</th>
                 <th class="">W/L</th>
-                <th class="">server</th>
+                <th class="">Server</th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +43,6 @@
         </tbody>    
         </table>
     </div>
-    <br />
     <br />
 </template>
 

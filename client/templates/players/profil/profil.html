@@ -1,10 +1,24 @@
 <template name="Profil">
-  <div class="profil">
-    todo profil
+  <div class="ui padded segment">
+
+    <form class="ui form">
+      <div class="field">
+        <label>Summoner name</label>
+        <input type="text" name="summonerName" placeholder="{{currentUser.profile.summonerName}}" readonly="">
+      </div>
+      <div class="field">
+        <label>Mail address</label>
+        <input type="text" name="summonerName" placeholder="{{currentUser.emails.[0].address}}" readonly="">
+      </div>
+      <div class="field">
+        <label>Communities</label>
+        <input type="text" name="summonerName" placeholder="{{userCommunities}}" readonly="">
+      </div>
+      
+      
     
-  
-{{currentUser}}
-    
-    
+      <!-- <button class="ui button" >Update</button -->
+    </form>
+
   </div>
 </template>

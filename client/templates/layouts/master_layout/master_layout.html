@@ -4,8 +4,8 @@
 
     <div class="ui container">
       <div class="ui large secondary inverted pointing menu">
-        <a class="active item">{{#linkTo route="home"}}lolCommuDynaQ{{/linkTo}}</a>
-        {{#linkTo route="listCommunities" class="item" }}Communities{{/linkTo}}
+        {{#linkTo route="home"}}<div class="active item">lolCommuDynaQ</div>{{/linkTo}}
+        <!-- {{#linkTo route="listCommunities" class="item" }}Communities{{/linkTo}} -->
           {{> LoginElement}}
        
       </div>
@@ -13,7 +13,7 @@
   </div>
   {{> sAlert}}
 
-<div class="ui center container">
+<div class="ui center padded container" style="min-height:800px; margin-top:15px;">
     {{> yield}}
 </div>
 
@@ -24,17 +24,16 @@
         <div class="three wide column">
           <h4 class="ui inverted header">About</h4>
           <div class="ui inverted link list">
-            <a href="#" class="item">Sitemap</a>
-            <a href="#" class="item">Contact Us</a>
+            <a href="mailto:fsaulier@gmail.com" class="item">Contact Us</a>
           </div>
         </div>
         <div class="three wide column">
           <h4 class="ui inverted header">Build with</h4>
           <div class="ui inverted link list">
-            <a href="#" class="item">meteor.js</a>
-            <a href="#" class="item">semantic ui</a>
-            <a href="#" class="item">heroku</a>
-            <a href="#" class="item">cloud9</a>
+            <a href="https://www.meteor.com/" target="_blank" class="item">meteor.js</a>
+            <a href="http://semantic-ui.com/" target="_blank" class="item">semantic ui</a>
+            <a href="https://www.heroku.com/" target="_blank" class="item">heroku</a>
+            <a href="https://c9.io/" target="_blank" class="item">cloud9</a>
           </div>
         </div>
         <div class="seven wide column">

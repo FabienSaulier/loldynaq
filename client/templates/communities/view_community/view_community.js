@@ -4,6 +4,15 @@
 Template.ViewCommunity.events({
     'click .joinCommunityBtn': function(){
         Communities.update({_id : this._id}, {$push: {user_id: Meteor.user()._id}});
+    Meteor.users.update(Meteor.userId(), {$push: {"profile.communityId": this._id}});
+    
+    },
+    
+    'click .quitCommunityBtn': function(){
+        Communities.update({_id : this._id}, {$pull: {user_id: Meteor.user()._id}});
+    Meteor.users.update(Meteor.userId(), {$pull: {"profile.communityId": this._id}});
+
+    
     },
     
     'click .refresh': function(){
